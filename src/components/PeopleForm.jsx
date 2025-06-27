@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState } from 'react';
 
 export default function PeopleForm({ onSubmit }) {
     const [name, setName] = useState('');
@@ -8,16 +8,25 @@ export default function PeopleForm({ onSubmit }) {
         e.preventDefault();
         if (!name || !email ) return;
 
-        onSubmit({name, email});
+        onSubmit({ name, email });
         setName('');
         setEmail('');
-    };
+    }
 
-    return (
+    return(
         <form onSubmit={handleSubmit}>
-            <input value={name} onChange={(e) => setName(e.target.value)}/>
-            <input value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <button type="submit"> Add </button>
+            <input
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)} 
+            />
+            <input
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)} 
+            />
+
+            <button type="submit">Add</button>
         </form>
     )
 }
